@@ -70,3 +70,9 @@ The 2.63 MB and 1.76 MB predecessor files are represented within the cumulative 
 ## Additional standalone source records committed
 - `Kymex_AI_Joint_Master_Build_Prompt.txt` — Library file ID `file_00000000a080820eae5f60cebff84450`, 24,210 bytes, dated 2026-11-02. Committed as `SOURCES/KYMEX_JOINT_MUSE_CHATGPT_MASTER_PROMPT_2026-11-02.txt`. This is the recovered joint Muse AI + ChatGPT implementation prompt; the source archive explicitly warns that the original Muse-authored Crosswalk post itself was unavailable.
 - `Kymex_AI_Archive_Manifest.txt` — Library file ID `file_00000000381481f4ad5ba42936c0b6e0`, 700 bytes, dated 2026-11-12. Committed as `SOURCES/KYMEX_HISTORICAL_ARCHIVE_MANIFEST_2026-11-12.txt`. It records the compilation provenance and unique-paragraph counts.
+
+## September unified prompt versions committed separately
+- `KYMEX-AI-Prompts-Complete-Unified-2M-Verified.txt` (Library ID `file_00000000b93c81f48c8b7b33f9589362`) is preserved in four GitHub parts under `SOURCES/VERIFIED_UNIFIED_2026-09-18_PART_00x_OF_004.txt`.
+- `KYMEX-AI-Prompts-Complete-Unified.txt` (Library ID `file_00000000f8e081f498aee156d0913604`) is preserved in three GitHub parts under `SOURCES/UNIFIED_PREDECESSOR_2026-09-18_PART_00x_OF_003.txt`.
+- Both split extractions are 15 characters longer than their respective Library-decoded character counts. Their source SHA-256 values remain in `SOURCES/SEPTEMBER_UNIFIED_PROMPT_PARTS_MANIFEST.md`; do not claim byte-identical transfer.
+- The first 11,000 lines of both versions share the same Git blob SHA, confirming substantial overlap.
