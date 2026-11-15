@@ -1,0 +1,16 @@
+{
+  "output": "Kymex_AI_Complete_Historical_Migration_Master_September_to_November_12_2026.txt",
+  "bytes": 3338619,
+  "megabytes_decimal": 3.339,
+  "mib": 3.184,
+  "primary_source": {
+    "name": "KYMEX-AI-Prompts-Complete-Unified-2M-Verified.txt",
+    "bytes": 2634435
+  },
+  "unique_paragraphs_added_from_older_archive": 130,
+  "unique_paragraphs_added_from_joint_prompt": 23,
+  "unique_paragraphs_added_from_beyond_chat_plan": 268,
+  "crosswalk_original_muse_body": "Not retrieved during this compilation; reconstructed requirements are explicitly labeled and not represented as verbatim.",
+  "destination": "https://my-kymexai.base44.app",
+  "reference_only": "https://the-kymex-ai.base44.app"
+}
