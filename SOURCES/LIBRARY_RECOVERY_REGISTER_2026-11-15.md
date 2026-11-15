@@ -66,3 +66,7 @@ The 2.63 MB and 1.76 MB predecessor files are represented within the cumulative 
 3. Inventory later Kymex-related Library files and screenshots, with duplicates identified by hash.
 4. Reconnect Base44, inspect the correct destination app, create a restorable checkpoint, and produce a route/entity/function/integration audit before code changes.
 5. Build a requirement-to-implementation traceability matrix and implement missing features in migration-safe batches.
+
+## Additional standalone source records committed
+- `Kymex_AI_Joint_Master_Build_Prompt.txt` — Library file ID `file_00000000a080820eae5f60cebff84450`, 24,210 bytes, dated 2026-11-02. Committed as `SOURCES/KYMEX_JOINT_MUSE_CHATGPT_MASTER_PROMPT_2026-11-02.txt`. This is the recovered joint Muse AI + ChatGPT implementation prompt; the source archive explicitly warns that the original Muse-authored Crosswalk post itself was unavailable.
+- `Kymex_AI_Archive_Manifest.txt` — Library file ID `file_00000000381481f4ad5ba42936c0b6e0`, 700 bytes, dated 2026-11-12. Committed as `SOURCES/KYMEX_HISTORICAL_ARCHIVE_MANIFEST_2026-11-12.txt`. It records the compilation provenance and unique-paragraph counts.
