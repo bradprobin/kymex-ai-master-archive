@@ -26,8 +26,11 @@ Private working archive for the Kymex AI personal-agent platform.
 
 - Private repository and authenticated write access verified.
 - Initial archive structure being established.
-- Historical master source identified in the user's ChatGPT Library; see `SOURCES/HISTORICAL_SOURCE_REGISTER.md` for its exact identity and transfer status.
-- Current additive implementation prompt and first dated research report are tracked separately from historical source text.
+- Recovered the 3.34 MB historical master from the user's ChatGPT Library and committed its extracted line ranges as four files under `SOURCES/`; see `SOURCES/HISTORICAL_MASTER_PARTS_MANIFEST.md` for the 14-character extraction discrepancy and `SOURCES/LIBRARY_RECOVERY_REGISTER_2026-11-15.md` for full provenance.
+- Also archived the standalone AI Agent Platform prompt, Complete Documentation Package, and Beyond Chat implementation plan under `SOURCES/`.
+- Added a 24-domain requirement traceability matrix and the complete additive implementation master v3 under `INDEX/` and `PROMPTS/2026-11-15/`.
+- The canonical Library original remains intact. The GitHub split extraction is not yet verified byte-identical.
+- Base44 access to the intended destination returned `Authentication required`; no app code or data was modified. All implementation statuses remain not audited until access is restored.
 
 ## Scope
 
