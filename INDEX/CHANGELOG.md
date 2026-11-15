@@ -9,3 +9,8 @@
 - Added follow-up research update for Codex CLI 0.169.0 (Nov 13), Dots, and MCP 2026-07-28 authorization security guidance.
 - Verified repository visibility, write permission, and read-back of committed files.
 - Historical 3,338,619-byte migration master remains pending byte-for-byte transfer; it has not been committed.
+
+- Recovered and inventoried five major Kymex Library source documents, plus the standalone AI Agent Platform prompt and Kymex visual identity assets.
+- Added the cumulative historical master to GitHub as four line-range source parts; recorded the 14-character extraction discrepancy and retained the Library original as canonical.
+- Added Library recovery register, split-file manifest, 24-domain requirement traceability matrix, and complete additive implementation master v3.
+- Base44 target access check returned Authentication required; no application code, schema, data or settings were modified. All destination implementation statuses remain not audited.
