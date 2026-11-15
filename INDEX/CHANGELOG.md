@@ -16,3 +16,5 @@
 - Base44 target access check returned Authentication required; no application code, schema, data or settings were modified. All destination implementation statuses remain not audited.
 
 - Added the standalone November 2 Kymex Muse + ChatGPT joint master prompt and November 12 historical archive manifest as separate source files.
+
+- Preserved both September unified Kymex prompt versions as separately named source-part sets, with line ranges, source hashes, overlap and extraction discrepancies documented.
