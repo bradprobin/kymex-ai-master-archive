@@ -14,3 +14,5 @@
 - Added the cumulative historical master to GitHub as four line-range source parts; recorded the 14-character extraction discrepancy and retained the Library original as canonical.
 - Added Library recovery register, split-file manifest, 24-domain requirement traceability matrix, and complete additive implementation master v3.
 - Base44 target access check returned Authentication required; no application code, schema, data or settings were modified. All destination implementation statuses remain not audited.
+
+- Added the standalone November 2 Kymex Muse + ChatGPT joint master prompt and November 12 historical archive manifest as separate source files.
