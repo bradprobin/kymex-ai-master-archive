@@ -1,0 +1,1153 @@
+KYMEX AI — BEYOND CHAT NEW MODIFICATION & IMPLEMENTATION MASTER PLAN
+Developer Implementation Specification — Multidomain AI Workspace,
+Research Engine, Visual Intelligence, Reference Intelligence, and
+Productivity Platform
+
+DOCUMENT STATUS This is a NEW, SEPARATE implementation and modification
+plan. It is intentionally different from the existing KYMEX AI master
+prompt/documentation. It should be treated as an implementation
+roadmap/specification that can be applied to KYMEX AI without replacing
+the existing KYMEX AI product definition.
+
+CORE VISION
+
+KYMEX AI should not be designed as merely a chatbot with a message box.
+It should operate as a multimodal AI work platform that can understand
+text, documents, books, images, barcodes, QR codes, visual references,
+structured identifiers, websites, products, organizations, tools,
+equipment, brands, companies, and other real-world references.
+
+The product should let a user move naturally from: QUESTION →
+IDENTIFICATION → RESEARCH → VERIFICATION → ANALYSIS → EDITING → ACTION →
+SAVED RESULT.
+
+The interface may still contain a chat, but chat is only one entry point
+into a much larger system.
+
+The system must distinguish: 1. Information it directly extracted. 2.
+Information retrieved from connected or approved sources. 3. Information
+inferred by the AI. 4. Information supplied by the user. 5. Information
+that could not be verified.
+
+Never fabricate a book, ISBN record, barcode meaning, QR payment
+destination, company identity, tool specification, or other reference.
+
+============================================================ 1.
+MULTIMODAL INPUT & UNDERSTANDING
+============================================================
+
+1.1 Text - Natural-language questions. - Long-form prompts. - Structured
+commands. - Code and technical notation. - Tables pasted into chat. -
+Mixed-language prompts where supported.
+
+1.2 Images - Upload photographs, screenshots, scans, diagrams, receipts,
+labels, products, pages, forms, whiteboards, charts, maps, and
+handwritten material. - Understand visible text using OCR. - Detect
+objects and relevant regions. - Allow the user to select/crop a region
+before analysis. - Preserve the original upload and create derived
+working copies.
+
+1.3 Documents - PDF, DOCX, PPTX, XLSX, CSV, TXT, Markdown and supported
+image-based documents. - Extract text, tables, headings, metadata, page
+references, figures and relevant structural information. - Maintain
+page/section provenance so answers can point back to source material.
+
+1.4 Camera-first workflow Provide an optional Scan action: Scan → Detect
+→ Identify → Verify → Explain → Save/Act.
+
+============================================================ 2. BOOK
+INTELLIGENCE
+============================================================
+
+2.1 Book preview KYMEX AI should be able to generate a useful book
+preview when enough information is available: - Title. - Author(s). -
+Edition. - Publisher. - Publication date. - ISBN-10 / ISBN-13 where
+applicable. - Language. - Page count when verified. -
+Subjects/categories. - Description. - Table of contents when
+available. - Cover image where legally available. - Edition
+differences. - Available formats when sourced. - User-uploaded pages or
+excerpts. - Reading-level or study-oriented metadata when available.
+
+The preview must clearly distinguish bibliographic facts from
+AI-generated commentary.
+
+2.2 Author + ISBN lookup The user should be able to enter: “[Author]
+[ISBN]” and have KYMEX AI resolve the identifier against configured
+bibliographic/reference sources.
+
+Resolution pipeline: Normalize ISBN → validate checksum → search sources
+→ reconcile records → detect edition → return confidence/provenance →
+present result.
+
+2.3 ISBN behavior Support: - ISBN-10. - ISBN-13. - Hyphenated ISBNs. -
+ISBN entered from OCR. - ISBN copied from a webpage. - Invalid or
+incomplete ISBN handling. - Multiple editions with clear
+differentiation.
+
+Do not assume two ISBNs represent the same edition.
+
+2.4 Book page analysis When a user uploads book pages, KYMEX AI should
+support: - Page transcription. - Chapter identification. - Summary. -
+Concept extraction. - Definitions. - Study questions. - Flashcards. -
+Citation/page references. - Compare pages or editions. - Explain
+difficult passages. - Extract tables and diagrams. - Search within
+uploaded book material.
+
+2.5 Copyright-aware book handling The system should support metadata,
+previews, user-provided material, summaries, analysis and
+transformations within applicable rights and platform rules. It must not
+falsely claim access to a full copyrighted book merely because metadata
+exists.
+
+============================================================ 3. BARCODE
+INTELLIGENCE
+============================================================
+
+Implement barcode scanning through camera and uploaded images.
+
+Support a provider abstraction for common barcode families where
+technically appropriate, including: - UPC-A / UPC-E. - EAN-8 / EAN-13. -
+Code 39 / Code 128. - ITF. - ISBN represented by EAN. - Other formats
+supported by the selected scanning SDK.
+
+Pipeline: Capture image → locate barcode → decode → normalize → identify
+type → query appropriate reference source → reconcile results → display
+details.
+
+For retail products, results can include: - Product name. - Brand. -
+Manufacturer. - Product identifier. - Category. - Variant/size when
+available. - Country/market information when verified. - Packaging
+information. - Product images from permitted sources. - User notes.
+
+A barcode value is an identifier, not proof of every product attribute.
+Source provenance must remain visible.
+
+============================================================ 4. QR CODE
+INTELLIGENCE
+============================================================
+
+Implement QR detection and decoding for: - URLs. - Text. - Contact
+information. - Wi-Fi configuration. - Email/SMS payloads. - App/deep
+links. - Payment-related QR payloads where supported. - Other standards
+supported by the decoder.
+
+4.1 Payment QR workflow When a QR appears to encode payment
+information: - Decode the payload. - Identify the apparent payment
+standard/network where possible. - Extract merchant/payee information
+present in the payload. - Extract amount/currency/reference information
+when encoded. - Display the raw decoded payload in an inspectable
+technical view. - Explain what each field means. - Show warnings when
+fields are missing, unusual, malformed, or inconsistent.
+
+Never state that a QR payment destination is safe merely because the
+code decoded successfully.
+
+Before any financial action: - Require explicit user confirmation. -
+Show destination details. - Do not silently initiate a payment. - Keep
+payment execution separate from QR analysis. - Apply authentication,
+fraud checks, transaction limits and provider controls.
+
+4.2 QR security Detect suspicious URL patterns, mismatched domains,
+encoded redirects and other observable warning signs where possible.
+Clearly label heuristic warnings as heuristics rather than proof of
+fraud.
+
+============================================================ 5. IMAGE
+EDITING & VISUAL MODIFICATION
+============================================================
+
+KYMEX AI should provide an image workspace, not only image description.
+
+Capabilities: - Crop. - Resize. - Rotate. - Straighten. - Remove or
+replace background. - Remove selected objects where supported. - Restore
+damaged areas. - Clean scans. - Enhance legibility. - Upscale where
+supported. - Adjust brightness, contrast, exposure and sharpness. -
+Convert formats. - Redact selected sensitive information. - Remove glare
+where technically feasible. - Perspective correction for photographed
+documents. - Color correction. - Selective editing through
+natural-language instructions. - Generate modified variants while
+preserving the original.
+
+Example: “Remove the background, keep the product unchanged, make the
+label clearer and export a square version.”
+
+The system should show: Original → Working version → Generated/edited
+version → Export.
+
+For edits affecting identity, documents, evidence, financial records or
+other high-stakes material, preserve the original and make modifications
+clearly distinguishable.
+
+============================================================ 6. VISUAL
+REFERENCE INTELLIGENCE
+============================================================
+
+A user should be able to photograph or upload a real-world item and ask:
+“What is this?” “What model is this?” “What does this reference mean?”
+“Find the specification.” “Compare this with the newer model.”
+
+Reference targets may include: - Tools. - Equipment. - Machinery. -
+Electronics. - Components. - Laboratory equipment. - Office equipment. -
+Industrial parts. - Vehicles and components. - Products. - Packaging. -
+Brands. - Companies. - Organizations. - Institutions. - Standards. -
+Models. - Part numbers. - Serial/reference numbers when appropriate.
+
+Resolution pipeline: Image/text reference → OCR/object detection →
+candidate generation → identifier matching → source retrieval →
+candidate comparison → confidence → verified attributes.
+
+Never convert visual similarity into an unsupported claim of exact
+identity.
+
+============================================================ 7. UNIQUE
+REFERENCE / IDENTIFIER ENGINE
+============================================================
+
+Create a generalized Reference Intelligence Engine.
+
+Supported reference classes may include: - ISBN. - UPC/EAN/product
+identifiers. - Model numbers. - Part numbers. - Manufacturer
+references. - Catalog numbers. - DOI and scholarly identifiers. -
+Patent/publication identifiers. - Company registration references where
+a connected authoritative source exists. - Standards identifiers. -
+Software/package identifiers. - Asset tags. - SKU/internal references
+supplied by a business. - Other domain-specific identifiers.
+
+Each identifier should have: - Type. - Normalized value. - Source. -
+Match status. - Confidence. - Timestamp. - Region/market if relevant. -
+Related entities. - Source links. - Raw response where appropriate. -
+Verification status.
+
+============================================================ 8. COMPANY,
+BRAND, ORGANIZATION & ENTITY INTELLIGENCE
+============================================================
+
+Allow queries such as: “Tell me about this company: [reference].” “What
+brand is this?” “What organization owns this brand?” “What are the
+official specifications?” “Show me the official website and relevant
+public references.”
+
+Entity pages should support: - Canonical name. - Aliases. - Entity
+type. - Country/region where verified. - Official website. -
+Parent/subsidiary relationships where sourced. - Products/services. -
+Public identifiers. - Public documentation. - Contact/public support
+channels when legitimately available. - Source provenance. -
+Last-verified timestamp.
+
+Do not expose private personal data simply because a reference can be
+associated with a person.
+
+============================================================ 9.
+DEVELOPER WORKSPACE
+============================================================
+
+KYMEX AI should include a dedicated developer workflow.
+
+Features: - Code generation. - Code explanation. - Refactoring. -
+Debugging. - Error-log analysis. - Repository/document analysis. - API
+design. - API request construction. - Schema generation. - JSON
+validation. - Regex assistance. - SQL assistance. - Database modeling. -
+Architecture diagrams. - Test generation. - Unit/integration test
+planning. - Dependency analysis. - Documentation generation. - Changelog
+generation. - Environment-variable guidance. - Deployment checklists. -
+Security review assistance. - Performance profiling guidance. - Diff
+explanation. - Patch generation. - Project planning.
+
+A developer can upload a repository/archive or connect an authorized
+development source, then ask questions grounded in that project.
+
+The system must preserve file paths, symbols, line references and
+relevant source provenance where available.
+
+============================================================ 10. STUDENT
+WORKSPACE ============================================================
+
+Student mode should support: - Homework guidance. - Step-by-step
+explanations. - Study plans. - Flashcards. - Practice quizzes. -
+Revision summaries. - Formula sheets. - Concept maps. - Exam
+preparation. - Uploaded textbook analysis. - Notes cleanup. - Lecture
+transcription/organization. - Citation assistance. - Research
+planning. - Source comparison. - Assignment structure. -
+Spaced-repetition content.
+
+The AI should distinguish tutoring from simply providing an answer and
+allow the user to choose the desired assistance level.
+
+============================================================ 11. TEACHER
+/ EDUCATOR WORKSPACE
+============================================================
+
+Teacher tools: - Lesson-plan generation. - Learning objectives. -
+Worksheets. - Quizzes. - Marking/rubric drafts. - Question banks. -
+Differentiated learning materials. - Reading comprehension exercises. -
+Classroom activity planning. - Presentation outlines. - Student feedback
+drafts. - Curriculum mapping. - Answer keys. - Resource organization. -
+Document-to-lesson conversion.
+
+Provide controls for age/grade, subject, duration, learning objectives
+and difficulty.
+
+============================================================ 12. OFFICE
+& KNOWLEDGE WORKSPACE
+============================================================
+
+Office workers should be able to: - Summarize meetings/documents. -
+Draft emails. - Extract action items. - Convert notes into reports. -
+Compare documents. - Build agendas. - Prepare presentations. - Analyze
+spreadsheets. - Clean datasets. - Generate formulas. - Create standard
+operating procedures. - Extract invoice/receipt information. - Create
+project trackers. - Draft policies and internal documentation. - Search
+connected knowledge sources.
+
+Outputs should preserve source references and clearly identify generated
+content.
+
+============================================================ 13.
+BUSINESS OWNER WORKSPACE
+============================================================
+
+Business workflows: - Business-plan drafting. - Market research
+organization. - Competitor comparison using sourced facts. -
+Customer-support knowledge base. - SOP generation. - Inventory
+analysis. - Invoice/receipt extraction. - Sales reporting. - Product
+catalog enrichment. - Staff onboarding material. - Meeting
+preparation. - Document automation. - Business intelligence summaries. -
+Workflow automation.
+
+Add reusable templates and configurable approval steps.
+
+============================================================ 14.
+RETAILER WORKSPACE
+============================================================
+
+Retail-oriented workflows: - Scan product barcode. - Resolve product
+identity. - Enrich product information. - Create catalog entries. -
+Compare supplier listings. - Track product variants. - Extract packaging
+information. - Generate product descriptions. - Organize stock
+information. - Create labels and internal references. - Detect duplicate
+catalog items. - Import/export product catalogs. - Create
+customer-facing product summaries.
+
+Retailers must be able to maintain their own internal SKU and inventory
+data separately from external identifiers.
+
+============================================================ 15.
+DOCUMENT & RECEIPT INTELLIGENCE
+============================================================
+
+Support: - Receipts. - Invoices. - Purchase orders. - Quotations. -
+Delivery notes. - Contracts. - Forms. - IDs and business documents where
+permitted. - Reports. - Statements. - Product labels.
+
+Extraction should produce structured fields plus source locations:
+Document → OCR/layout → fields → validation → human review → export.
+
+Never silently alter source documents.
+
+============================================================ 16. SEARCH,
+RESEARCH & SOURCE RECONCILIATION
+============================================================
+
+Create a research engine that can: - Search approved web/reference
+sources. - Search user-provided documents. - Search connected
+applications. - Search internal business knowledge. - Compare multiple
+sources. - Detect conflicts. - Show publication/source dates. - Track
+citations. - Separate primary from secondary sources where possible. -
+Mark stale information. - Let users open the underlying source.
+
+For conflicting records: Source A says X. Source B says Y. KYMEX should
+show the conflict rather than inventing a reconciliation.
+
+============================================================ 17.
+ACTIONABLE AI
+============================================================
+
+The assistant should be able to transition from analysis into authorized
+work: - Create a document. - Fill a template. - Generate a
+spreadsheet. - Prepare an email. - Create a task. - Organize files. -
+Call an approved API. - Execute a workflow. - Use connected tools. -
+Prepare but not automatically execute high-impact actions.
+
+Every external action should have: - Requested action. - Target. -
+Inputs. - Authorization status. - Preview where appropriate. - Result. -
+Audit record.
+
+============================================================ 18.
+WORKSPACE / PROJECT SYSTEM
+============================================================
+
+Users should be able to create projects such as: - “My Engineering
+Course.” - “Retail Catalog.” - “Company Operations.” - “Book
+Research.” - “Software Project.” - “Office Work.”
+
+Each workspace can contain: - Conversations. - Files. - Sources. -
+References. - Generated outputs. - Tasks. - Saved entities. -
+Automations. - Team permissions where supported.
+
+============================================================ 19. MEMORY
+& CONTEXT ============================================================
+
+Implement layered context: - Current conversation context. - Current
+task context. - Workspace/project context. - User-approved persistent
+preferences. - Connected-source context.
+
+Do not treat every retrieved fact as permanent memory.
+
+Allow users/admins to inspect appropriate context, correct it and
+control retention according to the product’s privacy model.
+
+============================================================ 20.
+VERIFICATION & TRUST LAYER
+============================================================
+
+Every major identification result should have a trust presentation: -
+Verified. - Partially verified. - Candidate match. - User-provided. - AI
+inference. - Unable to verify.
+
+Include: - Source. - Timestamp. - Matching fields. - Conflicting
+fields. - Confidence rationale.
+
+Confidence must never be presented as certainty.
+
+============================================================ 21. SAFETY
+FOR HIGH-IMPACT DOMAINS
+============================================================
+
+For medical, legal, financial, identity, payment, security and other
+high-impact tasks: - Require stronger source attribution. - Avoid
+unsupported definitive claims. - Separate informational analysis from
+execution. - Require confirmation before external actions. - Apply
+permission boundaries. - Log sensitive actions appropriately. - Minimize
+retention. - Provide escalation to qualified professionals where
+appropriate.
+
+============================================================ 22. API &
+BACKEND ARCHITECTURE
+============================================================
+
+Recommended services: 1. Conversation Service. 2. Multimodal Ingestion
+Service. 3. OCR Service. 4. Image Understanding Service. 5. Image
+Editing Service. 6. Barcode/QR Decoder Service. 7. Identifier Resolution
+Service. 8. Book/Bibliographic Service. 9. Entity Resolution Service.
+10. Search/Retrieval Service. 11. Source Reconciliation Service. 12.
+Document Intelligence Service. 13. Workspace Service. 14. Task/Action
+Service. 15. Automation Service. 16. File Service. 17. Permissions
+Service. 18. Audit Service. 19. Notification Service. 20. Billing/Usage
+Service. 21. Observability Service.
+
+Use provider abstractions so KYMEX can swap OCR, vision, search,
+barcode, image generation/editing, LLM and other providers without
+redesigning the product.
+
+============================================================ 23.
+EVENT-DRIVEN PROCESSING
+============================================================
+
+Long operations should run as jobs: upload.received ocr.started
+ocr.completed barcode.detected qr.detected identifier.resolved
+entity.matched book.resolved image.edit.started image.edit.completed
+document.extracted research.completed export.created action.requested
+action.approved action.completed action.failed
+
+Jobs need: - Unique ID. - Idempotency. - Retry policy. - Timeout. -
+Progress state. - Cancellation. - Error classification. - Audit trail.
+
+============================================================ 24.
+DATABASE MODEL
+============================================================
+
+Core entities: User Workspace Conversation Message Attachment Document
+DocumentPage ImageAsset ImageEdit BarcodeScan QRCodeScan Identifier
+IdentifierResolution Book BookEdition Author Publisher Entity Brand
+Company Organization Product ProductVariant Reference Source Citation
+ResearchRun Task Action Workflow Automation Credential AuditEvent
+Notification Export UsageRecord
+
+Store external IDs separately from internal database IDs.
+
+============================================================ 25. UI / UX
+============================================================
+
+The home screen should make the platform’s breadth obvious without
+becoming confusing.
+
+Primary entry actions: - Ask. - Scan. - Upload. - Search. - Identify. -
+Edit Image. - Research. - Build. - Automate.
+
+Contextual quick actions: “Scan a barcode” “Scan QR” “Identify this
+object” “Look up this ISBN” “Preview this book” “Explain this document”
+“Edit this image” “Analyze this spreadsheet” “Research this company”
+“Create a report” “Write code”
+
+Results should use rich cards rather than forcing every task into plain
+chat.
+
+============================================================ 26.
+UNIVERSAL SCAN WORKFLOW
+============================================================
+
+One Scan button should intelligently detect: - Barcode. - QR. - ISBN. -
+Text. - Document. - Product. - Equipment. - Diagram. - Table. -
+Receipt. - Label.
+
+Flow: SCAN → DETECT WHAT IS PRESENT → ASK/INFER USER INTENT → RESOLVE →
+VERIFY → DISPLAY → ACTION.
+
+If multiple objects are present, show selectable detections instead of
+guessing the user’s intended target.
+
+============================================================ 27. EXPORT
+& INTEROPERABILITY
+============================================================
+
+Support exports such as: - PDF. - DOCX. - XLSX. - CSV. - JSON. -
+Markdown. - Plain text. - Images.
+
+Where applicable, include: - Source citations. - Page references. -
+Metadata. - Creation timestamp. - Revision information.
+
+============================================================ 28.
+DEVELOPER IMPLEMENTATION ORDER
+============================================================
+
+Phase 1 — Foundation - Authentication. - Workspace. - Chat. - File
+upload. - Multimodal ingestion. - Permissions. - Audit.
+
+Phase 2 — Reference Intelligence - OCR. - Barcode. - QR. - ISBN. -
+Identifier resolution. - Entity resolution.
+
+Phase 3 — Knowledge - Book intelligence. - Document intelligence. -
+Search. - Research. - Citation/provenance.
+
+Phase 4 — Creative/Visual - Image editing. - Image workspace. - Visual
+identification. - Export pipeline.
+
+Phase 5 — Professional Workspaces - Developer. - Student. - Teacher. -
+Office. - Business. - Retail.
+
+Phase 6 — Action & Automation - Tasks. - Workflows. - Connected tools. -
+Approvals. - Notifications. - Background jobs.
+
+Phase 7 — Scale & Enterprise - Team controls. - Usage controls. -
+Observability. - Data retention. - Disaster recovery. - Enterprise
+security. - Provider abstraction. - Multi-region architecture where
+justified.
+
+============================================================ 29. TESTING
+REQUIREMENTS
+============================================================
+
+Create automated test suites for: - ISBN checksum validation. - ISBN
+edition resolution. - Barcode decoding. - QR decoding. - Payment QR
+parsing. - OCR accuracy benchmarks. - Entity resolution. - Product
+resolution. - Source reconciliation. - Citation correctness. - Image
+edit job lifecycle. - File parsing. - Permission enforcement. - Audit
+logging. - Action confirmation. - Idempotency. - Retry handling. -
+Export correctness. - Mobile camera workflows. - Accessibility. - Rate
+limiting. - Security boundaries.
+
+Include adversarial tests for: - Fake/altered labels. - Ambiguous
+identifiers. - Conflicting sources. - Malformed QR payloads. - Prompt
+injection in documents/web content. - Malicious files. - Unauthorized
+actions. - Stale reference records.
+
+============================================================ 30. ADMIN /
+OPERATIONS REQUIREMENTS
+============================================================
+
+Add administrative controls for: - Provider configuration. - API
+keys/secrets through secure secret storage. - OCR provider health. -
+Search provider health. - Barcode/QR provider health. - Image processing
+queues. - Research job queues. - Error rates. - Latency. - Usage. -
+Storage. - Audit events. - Data retention. - Feature flags. -
+Model/provider routing. - Incident diagnostics. - Integration status.
+
+All privileged controls must be server-authorized and audited.
+
+============================================================ 31.
+PERFORMANCE REQUIREMENTS
+============================================================
+
+Use: - Streaming where useful. - Background processing for heavy jobs. -
+Caching of safe reference metadata. - Deduplicated uploads. - Thumbnail
+generation. - Progressive image loading. - Queue prioritization. - Rate
+limiting. - Circuit breakers. - Provider timeouts. - Retry with
+backoff. - Result caching with freshness controls.
+
+The UI should immediately acknowledge uploads and show processing
+progress.
+
+============================================================ 32. PRIVACY
+& DATA GOVERNANCE
+============================================================
+
+Implement: - Encryption in transit. - Encryption at rest. -
+Least-privilege access. - Workspace isolation. - Secure credential
+handling. - Retention controls. - Deletion workflows. - Export
+workflows. - Audit trails. - Sensitive-content handling. - Provider
+data-sharing controls where supported.
+
+Do not use private user content for unrelated purposes merely because
+the platform can access it.
+
+============================================================ 33.
+EXTENSIBILITY
+============================================================
+
+Build capability modules around stable interfaces.
+
+Example: IdentifierProvider BookProvider BarcodeProvider QRProvider
+OCRProvider VisionProvider ImageEditorProvider SearchProvider
+EntityProvider DocumentParser StorageProvider NotificationProvider
+ActionProvider
+
+A new provider should be addable without rewriting the main assistant.
+
+============================================================ 34. EXAMPLE
+USER JOURNEYS
+============================================================
+
+Journey A — Student + Book User scans a book barcode. KYMEX identifies
+the ISBN. KYMEX resolves the edition. User opens Book Preview. User
+uploads two pages. KYMEX explains them and creates flashcards. User
+exports a study sheet.
+
+Journey B — Retailer User scans a product barcode. KYMEX resolves
+product identity. User confirms the product. KYMEX creates a catalog
+record using the retailer’s internal SKU. User generates a product
+description and label.
+
+Journey C — Engineer User photographs equipment. KYMEX extracts
+model/reference information. It presents candidate matches and source
+evidence. User selects the verified model. KYMEX retrieves the available
+public specifications/manual references. User asks for a maintenance
+checklist.
+
+Journey D — Office Worker User uploads a meeting transcript. KYMEX
+extracts decisions, tasks, owners and deadlines. User reviews them.
+KYMEX creates a structured action list.
+
+Journey E — QR Analysis User scans a QR. KYMEX identifies it as a
+payment-related payload. It displays the decoded fields and warnings. No
+payment is initiated automatically. The user may explicitly proceed
+through the connected payment workflow if one is available and
+authorized.
+
+Journey F — Developer User uploads an error log and relevant source
+files. KYMEX identifies likely failure points, cites relevant
+files/lines, proposes a patch and generates tests. The user reviews
+before applying changes.
+
+============================================================ 35. FINAL
+PRODUCT PRINCIPLE
+============================================================
+
+KYMEX AI should feel like a universal AI workbench rather than a
+conventional chatbot.
+
+The design goal is not: “Ask KYMEX a question.”
+
+The design goal is: “Bring KYMEX whatever I am working with — a
+question, book, barcode, QR code, image, document, product, tool,
+company, reference number, spreadsheet, codebase or business task — and
+let it help me understand it, verify it, transform it, organize it and,
+when authorized, act on it.”
+
+The implementation should therefore optimize for: UNDERSTANDING +
+IDENTIFICATION + VERIFIED KNOWLEDGE + CREATION + TRANSFORMATION +
+PRODUCTIVITY + AUTHORIZED ACTION.
+
+This document is a separate modification/implementation plan. It should
+complement the existing KYMEX AI documentation rather than overwrite it.
+
+============================================================ 36.
+PROFESSIONAL WORKSPACE EXPANSION — IMPLEMENTATION MANDATE
+============================================================
+
+IMPORTANT: The six professional workspaces are not limited to the
+examples named in this document. Developers must implement a broad
+capability system based on the actual needs of each role. The examples
+below are minimum requirements, not a complete feature ceiling.
+
+KYMEX should provide role-specific tools while keeping capabilities
+composable across workspaces.
+
+A capability may belong to more than one workspace. For example: - Email
+belongs to Office, Business, Retail and Developer workflows. -
+Scheduling belongs to all six. - Invoicing belongs to Business, Retail
+and Office workflows. - Research belongs to all six. - Document
+generation belongs to all six. - Automation belongs to all six.
+
+============================================================ 37. EMAIL &
+COMMUNICATION CENTER
+============================================================
+
+Implement a complete Email Center rather than only email drafting.
+
+Capabilities: - Compose email. - Reply. - Forward. - Draft and save. -
+Send through an authorized email provider. - Schedule email for a future
+time. - Cancel a scheduled email where provider capabilities permit. -
+Attach files. - Generate attachments. - Insert templates. - Create
+reusable signatures. - Multiple sender identities where authorized. -
+Multiple connected mailboxes where authorized. - Search mailbox. -
+Summarize threads. - Extract action items. - Detect deadlines. -
+Categorize messages. - Draft responses based on thread context. -
+Generate professional, academic, technical or customer-service
+variants. - Follow-up reminders. - Read-receipt/provider capabilities
+where supported. - Delivery/failure status. - Sent-message audit
+history. - Recipient confirmation before sending. - Attachment
+confirmation before sending.
+
+Email Sender Profiles: Each sender profile can contain: - Display
+name. - Authorized email address. - Reply-to address. - Signature. -
+Default tone. - Default footer. - Organization information. - Approved
+sending provider. - Permission scope. - Verification status.
+
+Security: KYMEX must never send email merely because it drafted one.
+Sending is a separate authorized action requiring explicit permission
+and appropriate provider authentication.
+
+============================================================ 38.
+CALENDAR, SCHEDULES & APPOINTMENT ENGINE
+============================================================
+
+Implement a Scheduling Center.
+
+Capabilities: - Create events. - Edit events. - Cancel events. -
+Recurring events. - Time-zone handling. - Attendee management. -
+Invitations. - Availability lookup through authorized calendar
+providers. - Meeting links where supported. - Reminders. - Preparation
+tasks. - Follow-up tasks. - Calendar conflict detection. -
+Rescheduling. - Working-hours preferences. - Buffer times. -
+Travel/preparation buffers where applicable. - Deadline tracking. -
+Personal schedules. - Team schedules where authorized. - Class
+schedules. - Office schedules. - Business appointments. - Retail staff
+schedules.
+
+Natural-language examples: “Schedule a meeting with the design team next
+Tuesday.” “Remind me two hours before the presentation.” “Find an
+available time for these attendees.” “Create a weekly study session.”
+“Schedule this invoice follow-up for Friday.”
+
+Never assume attendee availability or send invitations without the
+required authorization.
+
+============================================================ 39.
+DOCUMENT, FORM & RECEIPT GENERATOR
+============================================================
+
+Implement a document-generation workspace capable of producing: -
+Receipts. - Invoices. - Quotations. - Purchase orders. - Estimates. -
+Delivery notes. - Credit notes. - Debit notes. - Statements. - Expense
+reports. - Payment acknowledgements. - Sales orders. - Pro-forma
+documents. - Business letters. - Certificates/templates where
+appropriate. - Reports. - Meeting minutes. - Contracts/templates subject
+to appropriate review.
+
+Receipt Generator: Inputs may include: - Business information. -
+Customer information. - Items. - Quantity. - Unit price. - Discount. -
+Tax. - Shipping. - Payment method. - Transaction reference. -
+Date/time. - Currency. - Notes.
+
+Invoice Generator: Support: - Invoice numbering. - Line items. - Tax
+fields. - Discounts. - Due dates. - Payment terms. - Purchase order
+references. - Customer billing information. - Seller information. -
+Payment instructions. - Status. - Revision history. - PDF/export. -
+Email delivery through authorized sender. - Payment-status tracking
+where connected.
+
+Business owners and retailers should be able to create branded
+templates.
+
+Generated financial documents must clearly represent entered or
+retrieved transaction data. KYMEX must not invent a transaction,
+payment, tax amount, customer, or business registration detail.
+
+============================================================ 40.
+EXPENSE, FINANCE & BUSINESS RECORD WORKSPACE
+============================================================
+
+Capabilities: - Expense capture. - Receipt scanning. - Invoice
+extraction. - Expense categorization. - Duplicate detection. - Vendor
+matching. - Payment-status tracking. - Accounts-receivable task lists. -
+Accounts-payable task lists. - Aging summaries. - Cash-flow
+worksheets. - Budget tracking. - Revenue summaries. - Margin
+calculations. - Sales summaries. - Tax-data preparation fields. -
+Financial report generation.
+
+Connected financial actions must use explicit authorization and
+appropriate integrations.
+
+============================================================ 41.
+DEVELOPER WORKSPACE — EXPANDED
+============================================================
+
+Beyond code generation, implement:
+
+Project Management: - Project initialization. - Requirements
+extraction. - Technical specification generation. - Architecture
+planning. - Milestone planning. - Sprint/task generation. - Issue
+decomposition. - Acceptance criteria. - Definition-of-done checklists. -
+Changelog/release notes.
+
+Repository Intelligence: - Repository indexing. - Symbol search. -
+Dependency graph. - Call/reference relationships where available. -
+Configuration discovery. - Environment-variable detection. - API
+endpoint discovery. - Database schema discovery. - Documentation
+mapping. - TODO/issue extraction. - Duplicate-code detection assistance.
+
+Coding: - Generate. - Explain. - Refactor. - Migrate. - Optimize. -
+Debug. - Test. - Review. - Document. - Generate patches/diffs. -
+Generate commit messages. - Generate pull-request descriptions.
+
+Testing: - Unit tests. - Integration tests. - End-to-end test plans. -
+Regression tests. - Security test plans. - Performance test plans. -
+Test coverage analysis. - Failure reproduction workflows.
+
+Developer Utilities: - JSON/XML/CSV transformation. - Regex testing. -
+SQL query assistance. - API request builder. - cURL generation. -
+OpenAPI assistance. - Database migration planning. - Environment setup
+guidance. - Docker/container assistance. - CI/CD configuration
+assistance. - Deployment checklists. - Log analysis. - Monitoring/alert
+interpretation.
+
+Developer Automation: - Watch a project for configured events. - Run
+authorized build/test workflows. - Monitor build status. - Prepare
+release artifacts. - Notify configured recipients. - Require approval
+before destructive operations or production deployment.
+
+============================================================ 42. STUDENT
+WORKSPACE — EXPANDED
+============================================================
+
+Study System: - Personal study planner. - Semester planner. - Exam
+countdowns. - Revision schedules. - Spaced repetition. - Study
+reminders. - Subject dashboards. - Progress tracking. - Weak-topic
+detection based on user-provided work. - Practice-session scheduling.
+
+Learning: - Explain concepts at selectable difficulty. - Socratic
+tutoring. - Worked examples. - Practice questions. - Hints. -
+Flashcards. - Quizzes. - Mock exams. - Answer explanations. - Formula
+sheets. - Vocabulary builders. - Concept maps. - Study guides.
+
+Academic Documents: - Lecture-note cleanup. - PDF/textbook analysis. -
+Research organization. - Bibliography assistance. - Citation
+formatting. - Assignment planning. - Presentation preparation. -
+Lab-report structure. - Revision checklists.
+
+Student Productivity: - Email drafting. - Calendar scheduling. -
+Assignment deadline tracking. - Group-project task lists. - Meeting
+agendas. - Personal academic dashboard.
+
+============================================================ 43. TEACHER
+/ EDUCATOR WORKSPACE — EXPANDED
+============================================================
+
+Planning: - Lesson plans. - Units. - Schemes of work. - Learning
+objectives. - Curriculum mapping. - Term planning. - Assessment
+calendars. - Classroom schedules.
+
+Teaching Materials: - Worksheets. - Slides outlines. - Reading
+passages. - Examples. - Demonstrations. - Lab activity plans. -
+Discussion prompts. - Question banks. - Flashcards. - Revision packs.
+
+Assessment: - Quiz generation. - Test generation. - Answer keys. -
+Rubrics. - Marking guides. - Feedback drafts. - Question difficulty
+classification. - Learning-objective mapping. - Assessment analytics
+from supplied results.
+
+Classroom Administration: - Attendance workflows where connected. -
+Student-group planning. - Assignment tracking. - Parent/guardian
+communication drafts where appropriate. - Staff meeting preparation. -
+Calendar scheduling. - Reminder workflows.
+
+Teacher Email: - Draft parent communication. - Draft student feedback. -
+Draft administrative messages. - Schedule approved messages. - Maintain
+templates and signatures.
+
+============================================================ 44. OFFICE
+WORKER WORKSPACE — EXPANDED
+============================================================
+
+Communication: - Email sender. - Inbox analysis. - Meeting scheduling. -
+Calendar management. - Follow-up reminders. - Communication templates.
+
+Documents: - Reports. - Memos. - Letters. - Meeting minutes. -
+Agendas. - Policies. - SOPs. - Briefing documents. - Presentations. -
+Forms. - Templates.
+
+Data: - Spreadsheet analysis. - Formula generation. - Data cleanup. -
+CSV transformation. - Charts. - Pivot-style summaries. - Reconciliation
+assistance. - KPI reports.
+
+Workflow: - Convert email → task. - Convert meeting → action list. -
+Convert document → checklist. - Convert spreadsheet → report. - Convert
+notes → presentation. - Schedule recurring reports. - Generate
+weekly/monthly summaries.
+
+File organization: - Rename files. - Classify documents. - Extract
+metadata. - Build document indexes. - Search workspace files. - Detect
+duplicate documents.
+
+============================================================ 45.
+BUSINESS OWNER WORKSPACE — EXPANDED
+============================================================
+
+Business Operations: - Customer records where authorized. - Supplier
+records. - Product catalog. - Inventory. - Orders. - Invoices. -
+Receipts. - Quotations. - Purchase orders. - Expenses. - Revenue
+summaries. - Business reports.
+
+Sales: - Product descriptions. - Sales proposals. - Quotes. - Follow-up
+schedules. - Customer emails. - Sales pipeline organization. -
+Customer-service response drafts. - Promotions/content planning.
+
+Operations: - SOP creation. - Staff schedules. - Task assignment. -
+Approval workflows. - Vendor comparison. - Procurement planning. - Stock
+alerts. - Recurring operational checklists.
+
+Management: - KPI dashboards. - Management reports. - Meeting
+preparation. - Strategic planning documents. - Budget worksheets. -
+Scenario analysis. - Business-process mapping.
+
+Automation: - Low-stock alerts. - Invoice follow-up reminders. -
+Scheduled reports. - Recurring customer communications. - Task creation
+from incoming documents. - Approval queues.
+
+============================================================ 46.
+RETAILER WORKSPACE — EXPANDED
+============================================================
+
+Product Operations: - Barcode scanning. - Product identification. - SKU
+management. - Variant management. - Product catalog. - Product
+descriptions. - Product specifications. - Supplier references. - Pricing
+records. - Inventory records.
+
+Sales Operations: - Receipts. - Invoices. - Quotes. - Orders. - Customer
+records where authorized. - Returns/refund records. - Payment-reference
+capture. - Daily sales summaries.
+
+Inventory: - Stock-in. - Stock-out. - Low-stock alerts. - Reorder
+lists. - Stock counts. - Product-location mapping. - Duplicate product
+detection. - Variant reconciliation.
+
+Retail Productivity: - Generate product labels. - Generate shelf
+labels. - Generate promotional documents. - Schedule staff shifts. -
+Schedule inventory counts. - Create purchasing reminders. - Generate
+daily/weekly/monthly reports.
+
+Supplier Intelligence: - Scan supplier product references. - Compare
+catalog information. - Match products across identifiers. - Track
+supplier references. - Preserve supplier-specific SKU separately from
+universal identifiers.
+
+============================================================ 47. SHARED
+WORKSPACE CAPABILITIES
+============================================================
+
+All six professional workspaces should have access, according to
+permissions and configuration, to:
+
+Communication: - Email. - Calendar. - Notifications. - Templates. -
+Contacts where authorized.
+
+Productivity: - Tasks. - Checklists. - Notes. - Documents. -
+Spreadsheets. - Presentations. - Scheduling. - Reminders.
+
+AI: - Research. - Summarization. - Extraction. - Generation. -
+Classification. - Translation where supported. - Image understanding. -
+Image editing. - OCR. - Barcode/QR scanning.
+
+Automation: - Triggers. - Conditions. - Actions. - Scheduled
+workflows. - Approval steps. - Notifications. - Web/API actions through
+authorized integrations.
+
+Knowledge: - Workspace search. - Connected knowledge sources. -
+References. - Citations. - Saved research. - Entity pages.
+
+============================================================ 48.
+TEMPLATE & DOCUMENT DESIGN STUDIO
+============================================================
+
+Create a visual template editor for: - Invoices. - Receipts. - Quotes. -
+Reports. - Letters. - Certificates/templates. - Labels. - Email
+templates. - Study sheets. - Worksheets. - Business documents.
+
+Capabilities: - Drag-and-drop fields. - Brand/logo placement. -
+Typography controls. - Table layouts. - Dynamic variables. - Conditional
+sections. - Number formatting. - Currency formatting. - Date
+formatting. - Localization. - Preview. - Versioning. - Duplicate
+template. - Publish/unpublish. - Permission controls.
+
+============================================================ 49. TASK,
+REMINDER & WORKFLOW ENGINE
+============================================================
+
+Every workspace should be able to create: - One-time tasks. - Recurring
+tasks. - Deadline tasks. - Approval tasks. - Follow-up tasks. -
+Conditional tasks. - Scheduled workflows.
+
+Workflow structure: TRIGGER → CONDITIONS → AI/TOOL STEPS → HUMAN
+APPROVAL IF REQUIRED → ACTION → RESULT → NOTIFICATION → AUDIT.
+
+Triggers may include: - Time. - New email. - Uploaded file. - New
+document. - Barcode scan. - QR scan. - New order. - Inventory
+threshold. - Form submission. - Connected-app event. - API event.
+
+============================================================ 50. GOOGLE
+AI STUDIO IMPLEMENTATION TARGET
+============================================================
+The implementation should be designed with Google AI Studio as the
+primary development environment.
+
+The architecture should remain modular rather than hard-coding the
+entire product around a single model.
+
+Implementation guidance: - Use Gemini capabilities available through the
+chosen Google AI development stack for multimodal understanding,
+reasoning, document/image analysis and generation where appropriate. -
+Use structured outputs for extraction tasks. - Define explicit schemas
+for ISBN, barcode, QR, invoice, receipt, product, book, company and
+entity results. - Use function/tool calling for external actions. - Keep
+secrets and server credentials out of client-side code. - Place
+privileged operations behind a backend. - Use environment configuration
+for API keys. - Implement provider interfaces so additional AI or data
+providers can be introduced later. - Use streaming responses for
+interactive experiences where useful. - Use asynchronous jobs for long
+image/document/research tasks. - Validate model-generated structured
+data before writing it to the database. - Log tool calls and high-impact
+actions according to the security model.
+
+Google AI Studio should be treated as the development
+environment/orchestration starting point, while the production
+architecture should remain portable enough to evolve.
+
+============================================================ 51.
+GOOGLE-ORIENTED INTEGRATION LAYER
+============================================================
+
+Where the user authorizes access, design integration adapters for
+services such as: - Gmail/email. - Google Calendar. - Google Drive. -
+Google Sheets. - Google Docs. - Google Slides. - Other supported Google
+services.
+
+The adapter layer should normalize: - Authentication. - Permissions. -
+Search. - Read. - Create. - Update. - Delete. - Share. - Schedule. -
+Export.
+
+Do not grant an integration broader permissions than the requested
+feature requires.
+
+============================================================ 52.
+NOTIFICATION CENTER
+============================================================
+
+Implement: - In-app notifications. - Email notifications. - Scheduled
+reminders. - Workflow completion notices. - Failed-action notices. -
+Approval requests. - Low-stock alerts. - Invoice reminders. - Calendar
+reminders. - Build/test notifications. - Student study reminders. -
+Teacher task reminders.
+
+Users should control notification preferences and channels.
+
+============================================================ 53.
+UNIVERSAL SEARCH & COMMAND CENTER
+============================================================
+
+Provide a global search/command interface capable of finding: -
+Conversations. - Files. - Books. - Products. - Companies. -
+Organizations. - References. - Tasks. - Emails. - Calendar events. -
+Invoices. - Receipts. - Research. - Workflows. - Templates.
+
+Natural-language commands should route to the appropriate workspace/tool
+while preserving confirmation boundaries.
+
+============================================================ 54.
+APPROVAL & HUMAN-IN-THE-LOOP SYSTEM
+============================================================
+
+Actions that can create external consequences should support approval
+gates.
+
+Examples: - Send email. - Send invoice. - Schedule meeting. - Publish
+document. - Modify shared files. - Make payment. - Change inventory. -
+Deploy software. - Delete records.
+
+Approval UI should show: WHAT WILL HAPPEN WHO/WHAT WILL BE AFFECTED
+INPUTS ATTACHMENTS EXPECTED RESULT PERMISSIONS CONFIRM / CANCEL
+
+============================================================ 55. OFFLINE
+/ LOW-CONNECTIVITY EXPERIENCE
+============================================================
+
+Where technically feasible: - Camera capture can occur before upload. -
+Drafts can be stored locally. - Recently accessed safe metadata can be
+cached. - Queued actions can wait for connectivity. - The UI must
+clearly distinguish queued, completed and failed operations.
+
+No financial or other high-impact action should silently execute after a
+long offline period without the required current authorization.
+
+============================================================ 56.
+ANALYTICS & PRODUCTIVITY DASHBOARDS
+============================================================
+
+Provide role-specific dashboards.
+
+Developer: - Builds. - Tests. - Issues. - Deployments. - Repository
+activity.
+
+Student: - Study time. - Subjects. - Revision progress. - Upcoming
+deadlines.
+
+Teacher: - Lesson workload. - Assessment schedule. - Resource
+generation.
+
+Office: - Tasks. - Meetings. - Reports. - Document activity.
+
+Business: - Sales. - Expenses. - Invoices. - Inventory. - Tasks.
+
+Retail: - Stock. - Sales. - Product catalog. - Purchase/reorder tasks.
+
+Dashboards must be based on available data and clearly indicate
+missing/incomplete data.
+
+============================================================ 57.
+IMPLEMENTATION QUALITY GATES
+============================================================
+
+Before release, every workspace must demonstrate: - Core workflows
+functioning end-to-end. - Permissions enforced server-side. - External
+actions require appropriate authorization. - Generated documents
+preserve entered values. - Scan results are traceable to decoded data
+and sources. - AI inference is distinguished from verified facts. -
+Errors are recoverable. - Jobs are idempotent where applicable. - Audit
+records exist for privileged actions. - Exported files open correctly. -
+Mobile workflows work with camera input. - Accessibility requirements
+are tested. - Secrets are not exposed in client bundles. - Prompt
+injection from uploaded or retrieved content is handled. - User data
+isolation is tested.
+
+============================================================ 58. FEATURE
+DISCOVERY PRINCIPLE
+============================================================
+
+The implementation team must not interpret this document as a closed
+list.
+
+When implementing each workspace, developers should identify additional
+high-value workflows that naturally follow from the role, the connected
+tools, and the platform’s capabilities.
+
+The governing question is:
+
+“What repetitive, information-heavy, document-heavy,
+communication-heavy, research-heavy, scheduling-heavy, or
+decision-support task does this user perform that KYMEX can safely
+reduce to a simple workflow?”
+
+Add those capabilities through modular tools, templates and workflows
+without breaking permission boundaries.
+
+The goal is to make the workspaces genuinely useful professional
+environments, not themed versions of the same chat screen.
