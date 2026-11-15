@@ -18,3 +18,5 @@
 - Added the standalone November 2 Kymex Muse + ChatGPT joint master prompt and November 12 historical archive manifest as separate source files.
 
 - Preserved both September unified Kymex prompt versions as separately named source-part sets, with line ranges, source hashes, overlap and extraction discrepancies documented.
+
+- Added a recovery status report: 7,924,210 extracted source characters across preserved overlapping versions; 10M target not reached and no duplicate padding used. Base44 authentication remains blocked, so the live app is not yet audited or modified.
