@@ -12,3 +12,5 @@
 - Verify repository maintenance, license, security posture, and deployment requirements before adoption.
 - Do not treat directory size, stars, or downloads as proof of quality or safety.
 - Keep dated findings append-only; corrections must be explicit.
+
+| 2026-11-15 | [Kymex requirement traceability matrix](KYMEX_REQUIREMENT_TRACEABILITY_MATRIX_2026-11-15.md) | 24 capability domains mapped to historical requirements; destination app audit pending | Initial recovery; app status unknown |
