@@ -24,9 +24,7 @@ The recovered Library manifest describes this file as a compiled historical migr
 
 ## Transfer status
 
-The historical master has been recovered and inspected in the ChatGPT Library, but its complete 3.34 MB byte-for-byte contents have **not yet been committed to this GitHub repository**. The GitHub connector's text-file actions accept text content, but the available workflow in this session has not provided a verified direct binary/file-to-GitHub transfer path for this full Library artifact.
-
-Do not label any reconstructed prompt as the verbatim historical master. Do not delete or replace the Library original. The repository should receive a byte-for-byte copy when a supported transfer route is available; verify its SHA-256 and byte size after transfer.
+The historical master has been extracted into four line-range parts and committed to GitHub in commit `b2aeebadb886027e5ab5077ddb323fcb3ce714bd`. The extracted parts total 3,328,907 characters, 14 more than the Library-decoded source count of 3,328,893. Therefore the GitHub parts are not yet verified as byte-for-byte identical. The canonical Library original remains intact; its SHA-256 is `78b39b256ee355655b40a5b24dbf8fb85c2086e05f1abb4e7e50f55b62f11c01`. See `SOURCES/HISTORICAL_MASTER_PARTS_MANIFEST.md` and `SOURCES/LIBRARY_RECOVERY_REGISTER_2026-11-15.md`.
 
 ## Related reconstructed/current material
 
